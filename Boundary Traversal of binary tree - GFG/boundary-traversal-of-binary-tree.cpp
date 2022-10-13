@@ -145,13 +145,14 @@ void addright(Node*root,vector<int>&ans){
         rooot=rooot->left;
        }
     }
-    //   while(!temp.empty()){
-    //       ans.push_back(temp.front());
-    //   }
+      while(!temp.empty()){
+          ans.push_back(temp.back());
+          temp.pop_back();
+      }
 
-      for(int i=temp.size()-1;i>=0;i--){
-          ans.push_back(temp[i]);
-     }
+    //   for(int i=temp.size()-1;i>=0;i--){
+    //       ans.push_back(temp[i]);
+    //  }
 }
 
 
