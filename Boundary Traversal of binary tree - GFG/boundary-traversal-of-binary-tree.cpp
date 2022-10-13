@@ -112,13 +112,13 @@ bool isLeaf(Node* root){
 }
 
 void addleft(Node*root,vector<int>&ans){
-    Node* rooot=root->left;
-    while(rooot){
-        if(!isLeaf(rooot)) ans.push_back(rooot->data);
-        if(rooot->left){
-            rooot=rooot->left;
+     //root=root->left;
+    while(root){
+        if(!isLeaf(root)) ans.push_back(root->data);
+        if(root->left){
+            root=root->left;
         }else{
-            rooot=rooot->right;
+            root=root->right;
         }
     }
 }
@@ -135,14 +135,14 @@ void addleaves(Node*root,vector<int>&ans){
 // addright(root->right,ans);
 void addright(Node*root,vector<int>&ans){
     vector<int>temp;
-    Node* rooot=root->right;
-    while(rooot){
-        if(!isLeaf(rooot)) temp.push_back(rooot->data);
-        if(rooot->right){
-        rooot=rooot->right;
+    //root=root->right;
+    while(root){
+        if(!isLeaf(root)) temp.push_back(root->data);
+        if(root->right){
+        root=root->right;
       }
        else{
-        rooot=rooot->left;
+        root=root->left;
        }
     }
       while(!temp.empty()){
@@ -163,9 +163,9 @@ void addright(Node*root,vector<int>&ans){
         vector<int>ans;
         if(root==nullptr) return ans;
         if(!isLeaf(root))  ans.push_back(root->data);
-        addleft(root,ans);
+        addleft(root->left,ans);
         addleaves(root,ans);
-        addright(root,ans);
+        addright(root->right,ans);
         return ans;
     }
 };
