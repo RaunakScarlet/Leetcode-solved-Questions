@@ -20,7 +20,7 @@ public:
          }
          
          solve(root1->left,root2->right,x+1);
-         solve(root2->left,root1->right,x+1);
+         solve(root1->right,root2->left,x+1);
         
      }
     
