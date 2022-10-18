@@ -13,7 +13,7 @@ class Solution {
 public:
      void solve(TreeNode* root1,TreeNode* root2,int x){
          if(root1==nullptr && root2==nullptr)return;
-         if(root1 && root2 && x%2==1){
+         if(x%2==1){
                  int c=root1->val;
                  root1->val=root2->val;
                  root2->val=c;       
