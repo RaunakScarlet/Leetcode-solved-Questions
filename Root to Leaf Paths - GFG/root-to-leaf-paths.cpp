@@ -127,10 +127,13 @@ struct Node
     Node* right;
 };*/
 
+ 
 /* The function should print all the paths from root
  to leaf nodes of the binary tree */
- 
- void solve(Node*root, vector<vector<int>>&ans, vector<int>path){
+// vector<vector<int>>ans;
+
+
+ void solve(Node*root,vector<int>path,vector<vector<int>>&ans){
      if(root==nullptr) return ;
      if(root->left || root->right){
          path.push_back(root->data);
@@ -138,20 +141,19 @@ struct Node
          path.push_back(root->data);
          ans.push_back(path);
      }
-     solve(root->left,ans,path);
-      solve(root->right,ans,path);
+     solve(root->left,path,ans);
+      solve(root->right,path,ans);
      
  }
  
  
  
- 
- 
+
 vector<vector<int>> Paths(Node* root)
 {
     // Code here
     vector<vector<int>>ans;
     vector<int>path;
-    solve(root,ans,path);
+    solve(root,path,ans);
     return ans;
 }
