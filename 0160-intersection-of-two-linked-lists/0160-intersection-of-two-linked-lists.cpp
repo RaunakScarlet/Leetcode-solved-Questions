@@ -51,6 +51,15 @@ public:
         return nullptr;
         
         */
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
        ListNode* tempA=headA;
         int countA=0;
         while(tempA){
@@ -80,5 +89,38 @@ public:
             headB=headB->next;
         }
         return headA;
+        
+        
+*/
+        
+        
+//         while(headA!=headB){
+//             if(headA==nullptr){
+//                 headA=headB;
+//             } 
+//             else{
+//                 headA=headA->next;
+//             } 
+            
+//             if(headB==nullptr) {
+//                 headB=headA;
+//             }
+//             else {
+//                 headB=headB->next;
+//             }
+//         }
+//         return headA;
+        
+        if(headA==nullptr || headB==nullptr) return nullptr;
+        
+        ListNode* a=headA;
+        ListNode* b=headB;
+        while(a!=b){
+            a=a==nullptr?headB:a->next;
+            b=b==nullptr?headA:b->next;
+        }
+        
+        
+        return a;
     }
 };
