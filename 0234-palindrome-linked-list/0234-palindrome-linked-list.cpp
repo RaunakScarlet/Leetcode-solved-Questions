@@ -10,19 +10,40 @@
  */
 class Solution {
 public:
-    
-    
-    
-     bool check(ListNode*& head, ListNode* p) {
-        if(!p) { return true; }
-        bool isPal = check(head, p->next);
-        if(head->val != p->val) {
-            return false;
-        }
-        head = head->next;
-        return isPal;
+
+ListNode* reverse(ListNode * slow){
+    ListNode* pre=NULL;
+    ListNode * next=NULL;
+    while(slow){
+        next=slow->next;
+        slow->next=pre;
+        pre=slow;
+        slow=next;
     }
+    return pre;
+}
     bool isPalindrome(ListNode* head) {
-        return check(head,head);
+        if(head==nullptr || head->next==nullptr) return true;
+
+        ListNode* slow=head;
+        ListNode *fast=head;
+
+        while(fast->next && fast->next->next){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+
+       slow->next= reverse(slow->next);
+
+        slow=slow->next;
+        while( head && slow){
+            if(head->val!=slow->val) return false;
+            slow=slow->next;
+            head=head->next;
+
+        }
+
+return true;
+
     }
 };
