@@ -6,6 +6,9 @@ using namespace std;
 class Solution {
   public:
      int solve(long long A , long long B){
+          if( A<B){
+            swap(A,B);
+        }
          if(B==0){
              return A;
          }
@@ -15,9 +18,7 @@ class Solution {
   
     vector<long long> lcmAndGcd(long long A , long long B) {
         //code here
-        if( A<B){
-            swap(A,B);
-        }
+       
         int gcd=solve(A,B);
         long long lcm=(A*B)/gcd;
         return {lcm,gcd};
