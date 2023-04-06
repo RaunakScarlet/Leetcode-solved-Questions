@@ -6,9 +6,7 @@ using namespace std;
 class Solution {
   public:
      int solve(long long A , long long B){
-          if( A<B){
-            swap(A,B);
-        }
+         
          if(B==0){
              return A;
          }
