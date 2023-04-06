@@ -14,10 +14,10 @@ class Solution {
      }
   
     vector<long long> lcmAndGcd(long long A , long long B) {
-        // code here
-        // if( A<B){
-        //     swap(A,B);
-        // }
+        //code here
+        if( A<B){
+            swap(A,B);
+        }
         int gcd=solve(A,B);
         long long lcm=(A*B)/gcd;
         return {lcm,gcd};
